@@ -29,4 +29,3 @@ html = urllib2.urlopen("http://weather.gc.ca/windsock/data/windsock_data_e.html"
 # create a variable that stores the information received from the html parser
 # the html parser is beautiful soup
 soup = BeautifulSoup(html, "html.parser")
-
