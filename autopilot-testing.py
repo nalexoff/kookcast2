@@ -29,3 +29,9 @@ html = urllib2.urlopen("http://weather.gc.ca/windsock/data/windsock_data_e.html"
 # create a variable that stores the information received from the html parser
 # the html parser is beautiful soup
 soup = BeautifulSoup(html, "html.parser")
+
+#create a variable that stores the information received from the html parser
+#the html parser is beautiful soup
+#the information is stored in a table
+#the table is identified by the class "table table-striped table-hover"
+table = soup.find("table", {"class": "table table-striped table-hover"})
