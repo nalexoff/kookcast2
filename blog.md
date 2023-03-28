@@ -28,4 +28,5 @@ second interaction
 third interaction
 - adding some edge case handling in and the solution from gpt-4 was to handle the edge case outside of the function. this surprised me a bit and i asked it to incorporate a working solution within a function itself. it complied but i don't have any intuition whether this was a good idea or not. I wish it could identify when one of my suggestions is a bad one. feeding the code back to it and asking for improvements may net a change, or not. 
 - it's a bit surreal to set chatgpt off on a task and go handle something else in the meantime. it does feel like an assistant/employee that you can delegate tasks to.
-- 
+- ive started to use autopilot a bit, but only on the margins. feels more like autocompelte than an outright replacement for writing code. probably a function of the very minor tweaking im doing "by hand"
+- prompt design is not straightforward, I am not sure if the purely API driven interaction would be different? I seem to be struggling to provide examples in a way that can be interpreted in the way I want
