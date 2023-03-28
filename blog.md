@@ -24,3 +24,8 @@ second interaction
 - i used 3.5 to get a working solution, then asked gpt4 for suggestions on how to improve the code. it did seem to produce a more 'maintainable' solution, but at the same time it introduced a bug that 3.5 didn't have. we eventually got it working again, but i'm a little uneasy about not understanding the situation – will the fix work in all cases? i'm not sure. 
 - i still had to validate solutions quite a bit. for example one attempt at the bug fix worked for the original bug, but introduced a new one in the process 
 - 
+
+third interaction
+- adding some edge case handling in and the solution from gpt-4 was to handle the edge case outside of the function. this surprised me a bit and i asked it to incorporate a working solution within a function itself. it complied but i don't have any intuition whether this was a good idea or not. I wish it could identify when one of my suggestions is a bad one. feeding the code back to it and asking for improvements may net a change, or not. 
+- it's a bit surreal to set chatgpt off on a task and go handle something else in the meantime. it does feel like an assistant/employee that you can delegate tasks to.
+- 
