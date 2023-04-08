@@ -23,7 +23,7 @@ extracted_dicts_list = []
 # Define a function to extract data from the page after interacting with a button
 def extract_data():
     # Find the specified elements and store the text in a dictionary
-    summary_day_text = driver.find_element(By.CLASS_NAME, "summary-day-text").text
+    summary_day_text = driver.find_element(By.CLASS_NAME, "summary-day-text").text #this only works in headless mode, not visible on page if standar browser is loaded
     day_summary_surf = driver.find_element(By.CSS_SELECTOR, ".large-6.day-summary-text.day-summary-surf").text
     day_summary_cond = driver.find_element(By.CSS_SELECTOR, ".large-6.day-summary-text.day-summary-cond").text
     day_hour_txt = driver.find_element(By.CLASS_NAME, "day-hour-txt.clean").text
