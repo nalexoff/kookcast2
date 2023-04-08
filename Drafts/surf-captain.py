@@ -5,7 +5,7 @@ import time
 
 # Set up Chrome WebDriver options
 chrome_options = Options()
-# chrome_options.add_argument("--headless")  # Run browser in headless mode for faster execution (optional)
+chrome_options.add_argument("--headless")  # Run browser in headless mode for faster execution (optional)
 
 # Create a new instance of the Chrome WebDriver
 driver = webdriver.Chrome(options=chrome_options)
@@ -24,13 +24,15 @@ extracted_text_list = []
 for i, button in enumerate(buttons[:3]):
     # Perform your desired action with the button
     print(f"Interacting with button {i + 1}")
-    button.click()
+
+    # Use JavaScript to click the element
+    driver.execute_script("arguments[0].click();", button)
 
     # Add wait time between button interactions
     time.sleep(3)  # Adjust the sleep time based on your requirements
 
     # Add the code to extract the text from the newly displayed information
-    text_element = driver.find_element(By.CSS_SELECTOR, ".large-6.day-summary-text.day-summary-surf")
+    text_element = driver.find_element(By.ID, "fcst-details-wrapper")
 
     # Get the text from the element and store it in the list
     extracted_text = text_element.text

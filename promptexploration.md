@@ -32,3 +32,43 @@ Open the Google Chrome browser
 Navigate to https://surfcaptain.com/forecast/southampton-new-york
 Interact with this button: <div class="summary-day-expand"><i></i></div>
 Keep the browser window open on my desktop for 10 seconds after completing the above steps
+
+---
+
+Okay, I like your suggested approach to use dictionaries for creating the variables. Update the code to create variables for these elements, using your suggestion of dictionaries. You can pick variable names based on the class name:
+<div class="summary-day-abbrev"></div>
+<div class="large-6 day-summary-text day-summary-surf"></div>
+<div class="large-6 day-summary-text day-summary-cond"></div>
+
+
+Okay, we need to add more variables to the dictionary that's created for each button interaction. However, for each button interaction we need to parse a table the reuses the same class names. Update the code to create variables for these elements. You can pick variable names based on the class name unless otherwise specified.
+
+Table element 1: <div class="day-hour-txt clean"></div>
+Table element 2: the text from the second <td></td> in the row <tr></tr> should receive the variable name "6am_wind"
+
+//*[@id="fcst-details-wrapper"]/div[3]/div[2]/div[1]/table/tbody/tr[1]/td[2]
+
+---
+
+Okay, that worked. But let's rename table_elements to wind_elements as it's more descriptive. Next, we need to create swell_elements and add them to the dictionary. 
+
+For the swell_elements, we want the data from this class:
+<span class="hourly-swell"></span>
+
+Note that there should be two of these classes per row in the table.
+
+---
+
+Okay, let's add more variables. 
+
+Within: <div class="day-details-am-contents">
+
+We want to create the variable "am_lowtide" by combining the text from the day-details-label class and the day-details-value class that are within the day-details-am-lowtide class
+We want to create the variable "am_hightide" by combining the text from the day-details-label class and the day-details-value class that are within the day-details-am-hightide class
+
+And wtithin: <div class="day-details-pm-contents">
+
+We want to create the variable "pm_lowtide" by combining the text from the day-details-label class and the day-details-value class that are within the day-details-pm-lowtide class
+We want to create the variable "pm_hightide" by combining the text from the day-details-label class and the day-details-value class that are within the day-details-pm-hightide class
+
+However, just return back to me the porton

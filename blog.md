@@ -1,14 +1,4 @@
-this prompt worked after i figured out the curl with help from chatgpt:
-
-"""
-
-convert this curl command into python, however make it so that the start and end date parameters provided always reflect the current day: curl -H "token: LeRhYpFmZmwpAzFDJicsMqEntqNgiCqU" "https://www.ncei.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&stationid=GHCND:USW00014719&startdate=2023-03-20&enddate=2023-03-20&limit=1000"
-
-"""
-
-not that surprising, it's pretty explicit. it helped i verified the request first via the terminal. broader requests ended up with code that was a bit too compelx for what i needed
-
- notes on first interactions
+notes on first interactions
 - setting up an ide is a bit of a pain, i can see why something like replit is attractive to get going quickly. it may be more attractive with more complex projects w/ multiple languages?
 - having autopilot suggest additional items on the 'todo' list/shape the problem was a cool little surprise.
 - ultimately having a separate window up with chatgpt was useful...i felt more comfortable with broader questions there, and the back-and-forth was useful. i'm not sure i'm at the level or place where autopilot's 'comment to code' functionality was useful for me. i think their featureset in autopilot x will probably correct that - i signed up for the waitlist
@@ -23,10 +13,17 @@ second interaction
 - in general i'm not using autopilot at all, chatgpt is writing the code for me. i'm just copy and pasting. if i'm not leveraging prior experience (ie, i should write a function for this, create a class for this, etc.) and starting to initiate the writing of the code myself, then autopilot has little use for me
 - i used 3.5 to get a working solution, then asked gpt4 for suggestions on how to improve the code. it did seem to produce a more 'maintainable' solution, but at the same time it introduced a bug that 3.5 didn't have. we eventually got it working again, but i'm a little uneasy about not understanding the situation – will the fix work in all cases? i'm not sure. 
 - i still had to validate solutions quite a bit. for example one attempt at the bug fix worked for the original bug, but introduced a new one in the process 
-- 
+
 
 third interaction
 - adding some edge case handling in and the solution from gpt-4 was to handle the edge case outside of the function. this surprised me a bit and i asked it to incorporate a working solution within a function itself. it complied but i don't have any intuition whether this was a good idea or not. I wish it could identify when one of my suggestions is a bad one. feeding the code back to it and asking for improvements may net a change, or not. 
 - it's a bit surreal to set chatgpt off on a task and go handle something else in the meantime. it does feel like an assistant/employee that you can delegate tasks to.
 - ive started to use autopilot a bit, but only on the margins. feels more like autocompelte than an outright replacement for writing code. probably a function of the very minor tweaking im doing "by hand"
 - prompt design is not straightforward, I am not sure if the purely API driven interaction would be different? I seem to be struggling to provide examples in a way that can be interpreted in the way I want
+
+fourth interaction
+- AI helped me jump into Selenium very quickly and get something going, but I proceeded without reading any documentation. It's good for a quick start, but has it put me on an unsustainable path? There are multiple methods for identifying objects with this library, and the AI is switching between the two (seemingly) somewhat randomly
+- overall this idea of being abstracted away from a core skillset and wondering what the downside is … i think is the core issue at hand for me right now. for example, i don't know how to start a fire with just sticks, or grow food or hunt or fish. I would die without modern conveniences and the abstractions that have been built upon core knowledge. In theory this is precarious, but is it really? I don't spend my days worrying about whether i'll have access to a lighter or a stove to make a fire or heat food. So what do you want to do, move backwards to some "fundamental" understanding or build on the labors of others? Seems like AI is potentially a similar question one needs to ask
+- will 'coding by hand' become some hipster activity in the future? connecting with what's real, or something? Just like how rich people pay to go camping and pretend to be poor, connect with something 'authentic'? will kids load up airgapped computers and try and write something by hand in the future, sick of the AI doing everything for them? seeing what they can do of their own volition? 
+- learning by demonstration here is interesting, whether it sticks long-term or not aside. i.e., asking for a suggestion on approach leads it to a suggestion I hadn't considered but that makes sense. I wonder if I'll more readily recognize that appraoch in the future myself, and i'd be able to incorporate it into the original prompt myself 
+- there's a unique interaction with autopilot … i just have a file where i work on prompts as it's a bit easier to format and work out as opposed to the chatgpt form, but given that i have autopilot on in the file, it actually makes some suggestions for the prompting i'm doing. i haven't seen it be too useful yet, but the LLM making prompt suggestions for a different interaction with the LLM to act on is pretty interesting. Autopilot has the benefit of just auto-generating this for me in front of me, as opposed to me needing to submit/wait 
