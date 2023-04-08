@@ -1,21 +1,32 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.options import Options
 import time
 
-# Create a new Chrome browser instance
-driver = webdriver.Chrome()
+# Set up Chrome WebDriver options
+chrome_options = Options()
+# chrome_options.add_argument("--headless")  # Run browser in headless mode for faster execution (optional)
 
-# Navigate to the SurfCaptain website
-driver.get('https://surfcaptain.com/forecast/southampton-new-york')
+# Create a new instance of the Chrome WebDriver
+driver = webdriver.Chrome(options=chrome_options)
 
-# Find and click the summary-day-expand button
-expand_button = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'div.summary-day-expand')))
-expand_button.click()
+# Navigate to the URL
+url = "https://surfcaptain.com/forecast/southampton-new-york"
+driver.get(url)
 
-# Wait for 10 seconds
-time.sleep(10)
+# Find all the elements with the class name "summary-day-expand"
+buttons = driver.find_elements(By.CLASS_NAME, "summary-day-expand")
 
-# Close the browser
+# Iterate through the first three buttons in the list of found elements and interact with them individually
+for i, button in enumerate(buttons[:3]):
+    # Perform your desired action with the button
+    print(f"Interacting with button {i + 1}")
+    button.click()
+
+    # Add wait time between button interactions
+    time.sleep(3)  # Adjust the sleep time based on your requirements
+
+    # Add any other interaction or data extraction code here
+
+# Close the driver
 driver.quit()
