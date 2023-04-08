@@ -21,3 +21,14 @@ Create a table with time, wind, and sea information as the columns. Only create 
 Condition 1: the wind speed (measured in knots or "kt") is less than, around, or equal to 10 knots.
 
 Condition 2: the wind direction (measured in cardinal directions such as "SW" for "Southwest") is North or Northwest
+
+
+
+Selenium
+
+Write a Python application that uses Selenium to automate browser actions in Google Chrome. The application should do the following:
+
+Open the Google Chrome browser
+Navigate to https://surfcaptain.com/forecast/southampton-new-york
+Interact with this button: <div class="summary-day-expand"><i></i></div>
+Keep the browser window open on my desktop for 10 seconds after completing the above steps
