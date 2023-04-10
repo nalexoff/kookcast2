@@ -26,7 +26,7 @@ def extract_data():
     summary_day_text = driver.find_element(By.CLASS_NAME, "summary-day-text").text #this only works in headless mode, not visible on page if standar browser is loaded
     day_summary_surf = driver.find_element(By.CSS_SELECTOR, ".large-6.day-summary-text.day-summary-surf").text
     day_summary_cond = driver.find_element(By.CSS_SELECTOR, ".large-6.day-summary-text.day-summary-cond").text
-    day_hour_txt = driver.find_element(By.CLASS_NAME, "day-hour-txt.clean").text
+    day_hour_txt = driver.find_element(By.CSS_SELECTOR, "div[class^='day-hour-txt']").text
     wind_elements = [driver.find_element(By.XPATH, f"//tr[{i + 1}]/td[2]").text for i in range(5)]
     swell_elements = [driver.find_elements(By.CSS_SELECTOR, f"tr:nth-child({i + 1}) .hourly-swell") for i in range(5)]
     
