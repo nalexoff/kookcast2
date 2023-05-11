@@ -3,26 +3,32 @@ import re
 
 # Define the start and end markers for the forecast sections
 START_MARKER_1 = 'Montauk Point NY to Sandy Hook NJ out 20 nm offshore, including\nLong Island Sound, the Long Island Bays, and New York Harbor'
-END_MARKER_1 = 'Moriches Inlet NY to Montauk Point NY out 20 nm-'
-START_MARKER_2 = 'Moriches Inlet NY to Montauk Point NY out 20 nm-'
-END_MARKER_2 = 'Fire Island Inlet NY to Moriches Inlet NY out 20 nm-'
+END_MARKER_1 = 'Moriches Inlet NY to Montauk Point NY out 20 nm'
+START_MARKER_2 = 'Moriches Inlet NY to Montauk Point NY out 20 nm'
+END_MARKER_2 = 'Fire Island Inlet NY to Moriches Inlet NY out 20 nm'
 
 # Function to extract a forecast section from the text, given start and end markers
 def get_forecast_section(text, start_marker, end_marker):
     start_index = text.index(start_marker)
     end_index = text.index(end_marker, start_index)
-    return text[start_index + len(start_marker):end_index]
+    section = text[start_index + len(start_marker):end_index]
+    
+    # Replace multiple spaces with a newline character
+    section = re.sub(' {2,}', '\n', section)
+    
+    # Split the section into lines and return them
+    return section.split('\n')
 
 # Function to extract and clean individual forecasts from a forecast section
 def extract_clean_forecasts(forecast_section, skip_until_today=False):
-    forecasts = forecast_section.split('\n\n')
-    forecasts = [f.strip() for f in forecasts if f.strip()]
+    # forecasts = forecast_section.split('\n\n')  # Removed this line because forecast_section is now a list of strings
+    forecasts = [f.strip() for f in forecast_section if f.strip()]
 
     cleaned_forecasts = []
     for index, forecast in enumerate(forecasts):
         cleaned_forecast = re.sub('<[^<]+?>|\r\n|\n', ' ', forecast).strip()
         if skip_until_today:
-            if cleaned_forecast.startswith("TODAY") or cleaned_forecast.startswith("TONIGHT"):
+            if cleaned_forecast.startswith("TODAY") or cleaned_forecast.startswith("TONIGHT") or cleaned_forecast.startswith("REST OF TONIGHT"):
                 skip_until_today = False
         if not skip_until_today and cleaned_forecast:
             cleaned_forecasts.append(cleaned_forecast)
