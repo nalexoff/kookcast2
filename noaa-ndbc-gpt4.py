@@ -50,7 +50,7 @@ def parse_ndbc_text(url):
 
     # Remove the first and last items from forecasts_1 and the last item from forecasts_2
     if len(cleaned_forecasts_1) > 1 and len(cleaned_forecasts_2) > 1:
-        cleaned_forecasts_1 = cleaned_forecasts_1[1:-1]
+        cleaned_forecasts_1 = cleaned_forecasts_1[2:-1]
         cleaned_forecasts_2 = cleaned_forecasts_2[:-1]
 
     return cleaned_forecasts_1, cleaned_forecasts_2
