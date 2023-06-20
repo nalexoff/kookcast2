@@ -23,29 +23,32 @@ extracted_dicts_list = []
 # Define a function to extract data from the page after interacting with a button
 def extract_data():
     # Find the specified elements and store the text in a dictionary
-    summary_day_text = driver.find_element(By.CLASS_NAME, "summary-day-text").text #this only works in headless mode, not visible on page if standar browser is loaded
+    summary_day_text = driver.find_element(By.CLASS_NAME, "summary-day-text").text
     day_summary_surf = driver.find_element(By.CSS_SELECTOR, ".large-6.day-summary-text.day-summary-surf").text
     day_summary_cond = driver.find_element(By.CSS_SELECTOR, ".large-6.day-summary-text.day-summary-cond").text
     day_hour_txt = driver.find_element(By.CSS_SELECTOR, "div[class^='day-hour-txt']").text
     wind_elements = [driver.find_element(By.XPATH, f"//tr[{i + 1}]/td[2]").text for i in range(5)]
     swell_elements = [driver.find_elements(By.CSS_SELECTOR, f"tr:nth-child({i + 1}) .hourly-swell") for i in range(5)]
-    
-    am_lowtide_label = driver.find_element(By.CSS_SELECTOR, ".day-details-am-lowtide .day-details-label").text
-    am_lowtide_value = driver.find_element(By.CSS_SELECTOR, ".day-details-am-lowtide .day-details-value").text
+
+    # Find all elements matching the CSS selector and store them in a list
+    tide_elements = driver.find_elements(By.CSS_SELECTOR, ".cell.small-3.medium-4.large-3.day-details-value")
+
+    # Extract text from the elements using their index
+    am_lowtide_label = tide_elements[0].text
+    am_lowtide_value = tide_elements[1].text
     am_lowtide = f"{am_lowtide_label}: {am_lowtide_value}"
 
-    am_hightide_label = driver.find_element(By.CSS_SELECTOR, ".day-details-am-hightide .day-details-label").text
-    am_hightide_value = driver.find_element(By.CSS_SELECTOR, ".day-details-am-hightide .day-details-value").text
+    am_hightide_label = tide_elements[2].text
+    am_hightide_value = tide_elements[3].text
     am_hightide = f"{am_hightide_label}: {am_hightide_value}"
 
-    pm_lowtide_label = driver.find_element(By.CSS_SELECTOR, ".day-details-pm-lowtide .day-details-label").text
-    pm_lowtide_value = driver.find_element(By.CSS_SELECTOR, ".day-details-pm-lowtide .day-details-value").text
+    pm_lowtide_label = tide_elements[4].text
+    pm_lowtide_value = tide_elements[5].text
     pm_lowtide = f"{pm_lowtide_label}: {pm_lowtide_value}"
 
-    pm_hightide_label = driver.find_element(By.CSS_SELECTOR, ".day-details-pm-hightide .day-details-label").text
-    pm_hightide_value = driver.find_element(By.CSS_SELECTOR, ".day-details-pm-hightide .day-details-value").text
+    pm_hightide_label = tide_elements[6].text
+    pm_hightide_value = tide_elements[7].text
     pm_hightide = f"{pm_hightide_label}: {pm_hightide_value}"
-
 
     extracted_dict = {
         "summary_day_text": summary_day_text,
